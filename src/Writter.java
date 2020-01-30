@@ -1,4 +1,4 @@
 public interface Writter {
     void write();
-    void follow();
+    void follow(Point p);
 }

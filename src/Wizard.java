@@ -1,4 +1,4 @@
-public class Wizard extends Unit implements Writter {
+public class Wizard extends Unit implements Writter, Guard {
 
     public Wizard(String name) {
         super(name);
@@ -12,7 +12,26 @@ public class Wizard extends Unit implements Writter {
     }
 
     @Override
-    public void follow() {
-        //...
+    public void follow(Point p) {
+        System.out.println(String.format("%s: Да мой король, следую за вами", getName()));
+    }
+    @Override
+    public void attack(Unit u) {
+        System.out.println(String.format("%s: Я испепелю тебя своими чарами!", getName()));
+    }
+
+    @Override
+    public void kick(Unit u) {
+        System.out.println(String.format("%s: Лучше уходи по хорошему!", getName()));
+    }
+
+    @Override
+    public void defend(Unit u) {
+        System.out.println(String.format("%s: Если потребуется, я создам магический щит!", getName()));
+    }
+
+    @Override
+    public void greet(Unit u) {
+        System.out.println(String.format("%s: Доброго времени суток, %s!", getName(), u.getName()));
     }
 }
