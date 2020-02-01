@@ -11,9 +11,17 @@ public class King extends Unit {
     };
 
     Writter writter;
-    Guard guard;
 
+    Guard[] guards = new Guard[3];
 
+    public void setGuard(Guard guard) {
+        for (int i = 0; i < guards.length; i++) {
+            if (guards[i] == null) {
+                guards[i] = guard;
+                break;
+            }
+        }
+    }
 
     public King(String name) {
         super(name);
@@ -22,7 +30,6 @@ public class King extends Unit {
     public void setWritter(Writter writter) {
         this.writter = writter;
     }
-    public void setGuard(Guard guard) {this.guard = guard;}
 
     public void saySomething() {
         int randomIndex = (int)Math.floor(Math.random() * phrases.length);
@@ -36,7 +43,8 @@ public class King extends Unit {
     public void callSecurity() {
         String text = String.format("%s: Эх..., как жаль, что у меня нет охраны!", getName());
         System.out.println(text);
-
+        int randomIndex = (int)Math.floor(Math.random() * guards.length);
+        Guard guard = guards[randomIndex];
         if (guard != null) {
             System.out.println(String.format("%s: Охрана! Сюда!", getName()));
             guard.greet(this);

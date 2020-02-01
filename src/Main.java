@@ -4,11 +4,14 @@ public class Main {
     	King king = new King("Кимарк");
     	Wizard wizard = new Wizard("Пендальф");
     	Knight knight = new Knight("Фридрих");
-        HomeDragon homeDragon = new HomeDragon("Чермонде");
+        HomeDragon homeDragon = new HomeDragon("Чермондер");
+
      	king.setWritter(wizard);
+
      	king.setGuard(homeDragon);
 		king.setGuard(knight);
         king.setGuard(wizard);
+
 	    king.saySomething();
 	    king.saySomething();
 	    king.callSecurity();
